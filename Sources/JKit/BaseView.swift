@@ -4,12 +4,12 @@ import UIKit
 
 /// A `UIView` with known injection points for visually formatted Auto Layout constraints,
 /// adding subviews, and adding subview targets/actions.
-public class BaseView: UIView, BaseUIConfigurable {
+open class BaseView: UIView, BaseUIConfigurable {
 
     // MARK: Properties
 
-    public var visualConstraintViews: [String: AnyObject] { return [:] }
-    public var visualConstraints: [String] { return [] }
+    open var visualConstraintViews: [String: AnyObject] { return [:] }
+    open var visualConstraints: [String] { return [] }
 
     // MARK: Initializer
 
@@ -22,7 +22,7 @@ public class BaseView: UIView, BaseUIConfigurable {
     }
 
     @available(*, unavailable)
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
