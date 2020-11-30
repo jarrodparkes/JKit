@@ -90,6 +90,7 @@ public struct ConstantsStandard: Constants {
     public var footerButtonSpacing: CGFloat { return 16 }
     public var footerContentInsets: UIEdgeInsets { return UIEdgeInsets(uniform: 16) }
     public var footerContentSpacing: CGFloat { return 18 }
+    public var footerParentInsets: UIEdgeInsets { return UIEdgeInsets(top: 0, left: 0, bottom: 120, right: 0) }
 
     // MARK: General
 

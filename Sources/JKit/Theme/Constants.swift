@@ -178,6 +178,9 @@ public protocol Constants {
 
     /// The amount of spacing between any content and buttons in a `Footer`.
     var footerContentSpacing: CGFloat { get }
+    
+    /// The insets to apply to the parent of a `Footer`.
+    var footerParentInsets: UIEdgeInsets { get }
 
     // MARK: General
 
