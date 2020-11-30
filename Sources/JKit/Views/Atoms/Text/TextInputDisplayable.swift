@@ -15,6 +15,9 @@ public protocol UIKeyboardDisplayable {
 
     /// The auto-capitlization style to use while typing.
     var autocapitalizationType: UITextAutocapitalizationType { get }
+    
+    /// The type of return key to show on keyboard.
+    var returnKeyType: UIReturnKeyType { get }
 }
 
 // MARK: - TextInputDisplayable: UIKeyboardDisplayable

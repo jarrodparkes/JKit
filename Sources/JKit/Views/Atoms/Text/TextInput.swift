@@ -173,7 +173,7 @@ public class TextInput: BaseControl {
         let colors = theme.colors
 
         textInputView?.accessibilityLabel = displayable.label
-        textInputView?.tintColor = colors.tintTextInputCursor
+        textInputView?.tintColor = colors.tintTextInputCursor        
     }
 
     private func styleForError(theme: Theme, displayable: TextInputDisplayable) {

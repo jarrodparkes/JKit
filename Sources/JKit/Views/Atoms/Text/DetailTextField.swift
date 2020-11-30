@@ -114,6 +114,7 @@ class DetailTextField: BaseControl {
         textField.textContentType = displayable.textContentType
         textField.autocorrectionType = displayable.autocorrectionType
         textField.autocapitalizationType = displayable.autocapitalizationType
+        textField.returnKeyType = displayable.returnKeyType
 
         if let placeholder = displayable.placeholder {
             textField.attributedPlaceholder = placeholder.attributed(fontStyle: fontStyle,

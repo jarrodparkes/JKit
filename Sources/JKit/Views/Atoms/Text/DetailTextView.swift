@@ -107,6 +107,7 @@ class DetailTextView: BaseControl {
         textView.textContentType = displayable.textContentType
         textView.autocorrectionType = displayable.autocorrectionType
         textView.autocapitalizationType = displayable.autocapitalizationType
+        textView.returnKeyType = displayable.returnKeyType
 
         if let placeholder = displayable.placeholder, displayable.value.isEmpty, !isEditing {
             textView.attributedText = placeholder.attributed(fontStyle: fontStyle,
