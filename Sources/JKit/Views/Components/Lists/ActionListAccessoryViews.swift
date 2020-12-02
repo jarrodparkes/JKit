@@ -8,7 +8,7 @@ public protocol ActionListDetailDisplayable {
     var detail: String? { get }
 
     /// A custom text color for the detail.
-    var customTextColor: UIColor? { get }
+    func customTextColor(colors: Colors) -> UIColor?
 }
 
 // MARK: - ActionListAccessoryViews

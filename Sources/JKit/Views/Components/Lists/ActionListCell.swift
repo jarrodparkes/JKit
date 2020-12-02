@@ -17,13 +17,13 @@ public protocol ActionListCellDisplayable {
     var accessoryStyle: ActionListAccessoryViews { get }
 
     /// A custom tint color to apply to the icon.
-    var customIconTintColor: UIColor? { get }
+    func customIconTintColor(colors: Colors) -> UIColor?
 
     /// A custom text color to apply to the title.
-    var customTitleTextColor: UIColor? { get }
+    func customTitleTextColor(colors: Colors) -> UIColor?
 
     /// A custom background color to apply to the cell.
-    var customBackgroundColor: UIColor? { get }
+    func customBackgroundColor(colors: Colors) -> UIColor?
 }
 
 // MARK: - ActionListCell: BaseTableViewCell
@@ -46,55 +46,12 @@ public class ActionListCell: BaseTableViewCell {
 
     // MARK: Style
 
-    public override func styleWith(theme: Theme) {
-        super.styleWith(theme: theme)
-
-        let colors = theme.colors
-        let constants = theme.constants
-
-        let tintColor = colors.tintActionListIcon
-        let imageSize = constants.actionListAccessoryImageSize
-
-        // style known subviews
-        imageView?.tintColor = tintColor
-        textLabel?.numberOfLines = 0
-        detailTextLabel?.numberOfLines = 0
-
-        // style accessory views
-        if (accessoryView as? UIStackView) != nil {
-            styleAccessoryView(theme: theme)
-        } else {
-            accessoryStatusView = StatusView(frame: .zero)
-            accessoryDetailLabel = UILabel(frame: .zero)
-            accessoryImageView = UIImageView(frame: CGRect(x: 0,
-                                                           y: 0,
-                                                           width: imageSize.width,
-                                                           height: imageSize.height))
-
-            accessoryStackView = UIStackView(frame: CGRect(x: 0,
-                                                           y: 0,
-                                                           width: constants.actionListAccessoryDetailAndImageWidth,
-                                                           height: frame.height))
-
-            accessoryStackView?.addArrangedSubview(accessoryStatusView ?? StatusView())
-            accessoryStackView?.addArrangedSubview(accessoryDetailLabel ?? UILabel())
-            accessoryStackView?.addArrangedSubview(accessoryImageView ?? UIImageView())
-
-            if let detailWidthMininum = accessoryDetailLabel?.widthAnchor
-                .constraint(greaterThanOrEqualToConstant: constants.actionListAccessoryDetailMinimumWidth),
-                let accessoryImageWidth = accessoryImageView?.widthAnchor
-                    .constraint(equalToConstant: imageSize.width) {
-                NSLayoutConstraint.activate([detailWidthMininum, accessoryImageWidth])
-            }
-
-            styleAccessoryView(theme: theme)
-
-            accessoryView = accessoryStackView
-        }
-    }
-
     public func styleWith(theme: Theme, displayable: ActionListCellDisplayable) {
         super.styleWith(theme: theme)
+        
+        if (accessoryView as? UIStackView) == nil {
+            addAccessoryViews(theme: theme)
+        }
         
         let colors = theme.colors
         let constants = theme.constants
@@ -109,29 +66,33 @@ public class ActionListCell: BaseTableViewCell {
         }
 
         // background
-        backgroundColor = displayable.customBackgroundColor ?? colors.backgroundCell
+        backgroundColor = displayable.customBackgroundColor(colors: colors) ?? colors.backgroundCell
 
         // icon
         imageView?.image = displayable.icon
-        imageView?.tintColor = displayable.customIconTintColor ?? colors.tintActionListIcon
+        imageView?.tintColor = displayable.customIconTintColor(colors: colors) ?? colors.tintActionListIcon
 
         // title
-        let titleTextColor = displayable.customTitleTextColor ?? textColor
+        let titleTextColor = displayable.customTitleTextColor(colors: colors) ?? textColor
+        textLabel?.numberOfLines = 0
         textLabel?.attributedText = displayable.title.attributed(fontStyle: .h5, color: titleTextColor)
 
         // subtitle
         let subtitle = displayable.subtitle ?? ""
+        detailTextLabel?.numberOfLines = 0
         detailTextLabel?.attributedText = subtitle.attributed(fontStyle: .bodyLarge, color: textColor)
 
         // detail
         let detailDisplayable = displayable.accessoryStyle.detailDisplayable
         let detailString = detailDisplayable?.detail ?? ""
-        let detailTextColor = detailDisplayable?.customTextColor ?? textColor
+        let detailTextColor = detailDisplayable?.customTextColor(colors: colors) ?? textColor
         accessoryDetailLabel?.attributedText = detailString.attributed(fontStyle: .bodyLarge,
                                                                        color: detailTextColor,
                                                                        alignment: .right)
 
         // acccessory views
+        styleAccessoryViews(theme: theme)
+        
         accessoryDetailLabel?.isHidden = detailString.isEmpty
         switch displayable.accessoryStyle {
         case .detailOnly:
@@ -152,28 +113,52 @@ public class ActionListCell: BaseTableViewCell {
             accessoryView = nil
         }
     }
-
-    private func styleAccessoryView(theme: Theme) {
-        let colors = theme.colors
+    
+    private func addAccessoryViews(theme: Theme) {
         let constants = theme.constants
-        let images = theme.images
-
-        let tintColor = colors.tintActionListIcon
-
+        let imageSize = constants.actionListAccessoryImageSize
+        
+        accessoryStatusView = StatusView(frame: .zero)
+        accessoryDetailLabel = UILabel(frame: .zero)
+        accessoryImageView = UIImageView(frame: CGRect(x: 0,
+                                                       y: 0,
+                                                       width: imageSize.width,
+                                                       height: imageSize.height))
+        
+        accessoryStackView = UIStackView(frame: CGRect(x: 0,
+                                                       y: 0,
+                                                       width: constants.actionListAccessoryDetailAndImageWidth,
+                                                       height: frame.height))
+        
+        accessoryStackView?.addArrangedSubview(accessoryStatusView ?? StatusView())
+        accessoryStackView?.addArrangedSubview(accessoryDetailLabel ?? UILabel())
+        accessoryStackView?.addArrangedSubview(accessoryImageView ?? UIImageView())
+        
+        if let detailWidthMininum = accessoryDetailLabel?.widthAnchor
+            .constraint(greaterThanOrEqualToConstant: constants.actionListAccessoryDetailMinimumWidth),
+           let accessoryImageWidth = accessoryImageView?.widthAnchor
+            .constraint(equalToConstant: imageSize.width) {
+            NSLayoutConstraint.activate([detailWidthMininum, accessoryImageWidth])
+        }
+        
+        accessoryView = accessoryStackView
+    }
+    
+    private func styleAccessoryViews(theme: Theme) {
         accessoryStatusView?.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
         accessoryStatusView?.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-
+        
         accessoryDetailLabel?.numberOfLines = 0
         accessoryDetailLabel?.textAlignment = .right
         accessoryDetailLabel?.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         accessoryDetailLabel?.setContentHuggingPriority(.defaultLow, for: .horizontal)
-
+        
         accessoryImageView?.contentMode = .scaleAspectFit
-        accessoryImageView?.image = images.caretRight
-        accessoryImageView?.tintColor = tintColor
+        accessoryImageView?.image = theme.images.caretRight
+        accessoryImageView?.tintColor = theme.colors.tintActionListIcon
         accessoryImageView?.setContentHuggingPriority(UILayoutPriority(900), for: .horizontal)
-
+        
         accessoryStackView?.distribution = .fill
-        accessoryStackView?.spacing = constants.actionListAccessoryViewSpacing
+        accessoryStackView?.spacing = theme.constants.actionListAccessoryViewSpacing
     }
 }

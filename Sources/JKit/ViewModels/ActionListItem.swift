@@ -11,9 +11,9 @@ public struct ActionListItem: ActionListCellDisplayable {
     public let subtitle: String?
     public let accessoryStyle: ActionListAccessoryViews
 
-    public let customIconTintColor: UIColor?
-    public let customTitleTextColor: UIColor?
-    public let customBackgroundColor: UIColor?
+    private let customIconTintColor: UIColor?
+    private let customTitleTextColor: UIColor?
+    private let customBackgroundColor: UIColor?
 
     // MARK: Initializer
 
@@ -77,5 +77,19 @@ public struct ActionListItem: ActionListCellDisplayable {
         self.customBackgroundColor = customBackgroundColor
 
         self.subtitle = nil
+    }
+    
+    // MARK: ActionListCellDisplayable
+    
+    public func customIconTintColor(colors: Colors) -> UIColor? {
+        return customIconTintColor
+    }
+    
+    public func customTitleTextColor(colors: Colors) -> UIColor? {
+        return customTitleTextColor
+    }
+    
+    public func customBackgroundColor(colors: Colors) -> UIColor? {
+        return customBackgroundColor
     }
 }
