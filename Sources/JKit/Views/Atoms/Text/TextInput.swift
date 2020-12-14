@@ -166,7 +166,7 @@ public class TextInput: BaseControl {
 
         mainLabel.numberOfLines = 0
         mainLabel.attributedText = displayable.label
-            .uppercased().attributed(fontStyle: .h5, color: colors.textHighEmphasis)
+            .attributed(fontStyle: .label, color: colors.textHighEmphasis)
     }
 
     private func styleTextInputView(theme: Theme, displayable: TextInputDisplayable) {
@@ -182,7 +182,7 @@ public class TextInput: BaseControl {
         errorLabel.numberOfLines = 0
         if let error = displayable.error {
             errorLabel.isHidden = false
-            errorLabel.attributedText = error.localizedDescription.attributed(fontStyle: .labelLarge,
+            errorLabel.attributedText = error.localizedDescription.attributed(fontStyle: .label,
                                                                               color: colors.textError)
         } else {
             errorLabel.isHidden = true
@@ -196,7 +196,7 @@ public class TextInput: BaseControl {
 
         if let tip = displayable.tip {
             tipLabel.isHidden = false
-            tipLabel.attributedText = tip.attributed(fontStyle: .labelLarge, color: colors.textInputTip)
+            tipLabel.attributedText = tip.attributed(fontStyle: .body, color: colors.textInputTip)
         } else {
             tipLabel.isHidden = true
         }

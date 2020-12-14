@@ -8,8 +8,6 @@ public protocol Images {
     var add: UIImage? { get }
     /// Bell image.
     var bell: UIImage? { get }
-    /// Briefcase image.
-    var briefcase: UIImage? { get }
     /// Camera image.
     var camera: UIImage? { get }
     /// Caret down image.
@@ -76,8 +74,6 @@ public protocol Images {
     var profile: UIImage? { get }
     /// Search image.
     var search: UIImage? { get }
-    /// Ticket image.
-    var ticket: UIImage? { get }
     /// Time clock image.
     var timeClock: UIImage? { get }
     /// Uniform image.

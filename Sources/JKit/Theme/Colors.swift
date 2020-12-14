@@ -72,24 +72,8 @@ public protocol Colors {
 
     /// Contained Button - Disabled background color.
     var backgroundButtonContainedDisabled: UIColor { get }
-    /// Contained Button - Primary background color.
-    var backgroundButtonContainedPrimary: UIColor { get }
-    /// Contained Button - Secondary 1 background color.
-    var backgroundButtonContainedSecondary1: UIColor { get }
-    /// Contained Button - Secondary 2 background color.
-    var backgroundButtonContainedSecondary2: UIColor { get }
-    /// Contained Button - Secondary 3 background color.
-    var backgroundButtonContainedSecondary3: UIColor { get }
-    /// Contained Button - Secondary 4 background color.
-    var backgroundButtonContainedSecondary4: UIColor { get }
-    /// Contained Button - Secondary 5 background color.
-    var backgroundButtonContainedSecondary5: UIColor { get }
     /// Contained Button - Border color.
     var borderButtonContained: UIColor { get }
-    /// Contained Button - Primary text color.
-    var textButtonContainedPrimary: UIColor { get }
-    /// Contained Button - Secondary text color.
-    var textButtonContainedSecondary: UIColor { get }
 
     // MARK: Footer
 
@@ -128,27 +112,6 @@ public protocol Colors {
     /// Text color for links contained within a `NotesView`.
     var textNotesLink: UIColor { get }
 
-    // MARK: Outline Button
-
-    /// Outline Button - Primary border color.
-    var borderButtonOutlinePrimary: UIColor { get }
-    /// Outline Button - Secondary 0 border color.
-    var borderButtonOutlineSecondary0: UIColor { get }
-    /// Outline Button - Secondary 1 border color.
-    var borderButtonOutlineSecondary1: UIColor { get }
-    /// Outline Button - Secondary 2 border color.
-    var borderButtonOutlineSecondary2: UIColor { get }
-    /// Outline Button - Secondary 3 border color.
-    var borderButtonOutlineSecondary3: UIColor { get }
-    /// Outline Button - Secondary 4 border color.
-    var borderButtonOutlineSecondary4: UIColor { get }
-    /// Outline Button - Secondary 5 border color.
-    var borderButtonOutlineSecondary5: UIColor { get }
-    /// Outline Button - Primary text color.
-    var textButtonOutlinePrimary: UIColor { get }
-    /// Outline Button - Secondary text color.
-    var textButtonOutlineSecondary: UIColor { get }
-
     // MARK: Selection Button
 
     /// Background color for checkboxes.
@@ -161,18 +124,28 @@ public protocol Colors {
     var tintSelectionButtonRadio: UIColor { get }
 
     // MARK: Status View
-
-    /// Status View - Alert color.
-    var colorStatusAlert: UIColor { get }
-    /// Status View - Inactive color.
-    var colorStatusInactive: UIColor { get }
-    /// Status View - Normal color.
-    var colorStatusNormal: UIColor { get }
-    /// Status View - Success color.
-    var colorStatusSuccess: UIColor { get }
-    /// Status View - Warning color.
-    var colorStatusWarning: UIColor { get }
-
+    
+    /// Status View - Alert background color.
+    var backgroundStatusAlert: UIColor { get }
+    /// Status View - Inactive background color.
+    var backgroundStatusInactive: UIColor { get }
+    /// Status View - Normal background color.
+    var backgroundStatusNormal: UIColor { get }
+    /// Status View - Success background color.
+    var backgroundStatusSuccess: UIColor { get }
+    /// Status View - Warning background color.
+    var backgroundStatusWarning: UIColor { get }
+    /// Status View - Alert text color.
+    var textStatusAlert: UIColor { get }
+    /// Status View - Inactive text color.
+    var textStatusInactive: UIColor { get }
+    /// Status View - Normal text color.
+    var textStatusNormal: UIColor { get }
+    /// Status View - Success text color.
+    var textStatusSuccess: UIColor { get }
+    /// Status View - Warning text color.
+    var textStatusWarning: UIColor { get }
+    
     // MARK: Text
 
     /// Disabled text color.
@@ -185,13 +158,6 @@ public protocol Colors {
     var textHighEmphasisInverted: UIColor { get }
     /// Error text color.
     var textError: UIColor { get }
-
-    // MARK: Text Button
-
-    /// Text Button - Primary text color.
-    var textButtonTextPrimary: UIColor { get }
-    /// Text Button - Secondary text color.
-    var textButtonTextSecondary: UIColor { get }
 
     // MARK: Text Input
 

@@ -95,7 +95,7 @@ class TextInputCountView: BaseView {
         let count = String(format: "%0\(maxCharacterCountDigits)d", displayable.value.count)
 
         label.attributedText = "\(count)/\(displayable.customCharacterCount(constants: constants))"
-            .attributed(fontStyle: .labelSmall,
+            .attributed(fontStyle: .label,
                         color: colors.textInputPlaceholder,
                         alignment: .right)
     }

@@ -170,8 +170,8 @@ extension MenuPicker: UIPickerViewDelegate {
             if let currentView = view as? UILabel { label = currentView }
 
             let alignment = displayable?.titleAlignment(forRow: row, component: component) ?? .center
-            let attributes = FontStyle.h4.attributesWith(textColor: colors.textMenuPickerRow,
-                                                         alignment: alignment)
+            let attributes = FontStyle.body.attributesWith(textColor: colors.textMenuPickerRow,
+                                                           alignment: alignment)
             let text = displayable?.title(forRow: row, component: component) ?? ""
             label.attributedText = NSAttributedString(string: text, attributes: attributes)
             label.numberOfLines = 0

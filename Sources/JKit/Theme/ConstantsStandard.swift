@@ -137,15 +137,16 @@ public struct ConstantsStandard: Constants {
     public var expandButtonTitleCaretSpacing: CGFloat { return 10 }
 
     // MARK: Status View
-
-    public var statusViewDotWidth: CGFloat { return 8 }
-
+        
+    public var statusViewCornerRadius: CGFloat { return 12 }
+    public var statusViewHeight: CGFloat { return 24 }
+    
     // MARK: Text Input
 
     public var textInputCharacterCountLabelWidth: CGFloat { return 50 }
     public var textInputContentInsets: UIEdgeInsets { return UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 0) }
     public var textInputContentVerticalSpacing: CGFloat { return 8 }
-    public var textInputFontStyle: FontStyle { return .labelLarge }
+    public var textInputFontStyle: FontStyle { return .body }
     public var textInputIconFrameSideLength: CGFloat { return textInputSystemClearIconSideLength * 2 }
     public var textInputIconInsets: UIEdgeInsets { return UIEdgeInsets(uniform: textInputSystemClearIconSideLength / 2) }
     public var textInputMaxCharacters: UInt { return 100 }

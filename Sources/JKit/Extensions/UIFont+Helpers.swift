@@ -20,7 +20,7 @@ extension UIFont {
         var error: Unmanaged<CFError>?
         let success = CTFontManagerRegisterGraphicsFont(font, &error)
         guard success else {
-            print("Error registering font: maybe it was already registered.")
+            print("Error registering font \(font): maybe it was already registered.")
             return false
         }
 

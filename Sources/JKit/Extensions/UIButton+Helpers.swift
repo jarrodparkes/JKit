@@ -16,7 +16,7 @@ extension UIButton {
                                               bottom: 0,
                                               right: constants.expandButtonTitleCaretSpacing)
 
-        button.titleLabel?.font = FontStyle.labelLarge.font
+        button.titleLabel?.font = FontStyle.label.font
         button.setTitle(title, for: .normal)
 
         button.setTitleColor(titleColor, for: .normal)

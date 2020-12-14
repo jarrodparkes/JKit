@@ -116,7 +116,7 @@ public class AlertView: BaseView {
         iconImageView.contentMode = .scaleAspectFit
 
         messageLabel.numberOfLines = 0
-        messageLabel.attributedText = displayable.message.attributed(fontStyle: .bodyLarge,
+        messageLabel.attributedText = displayable.message.attributed(fontStyle: .body,
                                                                      color: colors.textHighEmphasisInverted)
 
         closeButton.tintColor = colors.tintAlertCloseButton

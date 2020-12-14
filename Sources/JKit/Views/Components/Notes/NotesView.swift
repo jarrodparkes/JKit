@@ -93,7 +93,7 @@ public class NotesView: BaseView {
         for (index, note) in displayable.notes.enumerated() {
             switch note.config {
             case .link:
-                let button = Button(frame: .zero, style: .text(.primary, .left))
+                let button = Button(frame: .zero, style: .text(colors.textNotesLink, .left))
                 button.tag = index
                 button.styleWith(theme: theme)
                 button.setTitle(note.text, for: .normal)

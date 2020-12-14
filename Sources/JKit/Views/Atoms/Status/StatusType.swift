@@ -24,11 +24,11 @@ public enum StatusType {
     /// - Returns: The color for this `StatusType`.
     public func color(colors: Colors) -> UIColor {
         switch self {
-        case .alert: return colors.colorStatusAlert
-        case .normal, .selected: return colors.colorStatusNormal
-        case .success: return colors.colorStatusSuccess
-        case .warning: return colors.colorStatusWarning
-        case .inactive: return colors.colorStatusInactive
+        case .alert: return colors.backgroundStatusAlert
+        case .normal, .selected: return colors.backgroundStatusNormal
+        case .success: return colors.backgroundStatusSuccess
+        case .warning: return colors.backgroundStatusWarning
+        case .inactive: return colors.backgroundStatusInactive
         }
     }
 
@@ -37,8 +37,11 @@ public enum StatusType {
     /// - Returns: The text color for this `StatusType`.
     public func textColor(colors: Colors) -> UIColor {
         switch self {
-        case .alert, .success: return .white
-        default: return .surfaceBlack
+        case .alert: return colors.textStatusAlert
+        case .normal, .selected: return colors.textStatusNormal
+        case .success: return colors.textStatusSuccess
+        case .warning: return colors.textStatusWarning
+        case .inactive: return colors.textStatusInactive        
         }
     }
 }

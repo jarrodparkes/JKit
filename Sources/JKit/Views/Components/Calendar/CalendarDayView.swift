@@ -67,7 +67,7 @@ enum CalendarDayViewSelectionStyle: String {
     func textColor(colors: Colors, isToday: Bool) -> UIColor {
         switch self {
         case .activeRangeBoundary, .singleSelect, .inactiveRangeBoundary: return .white
-        case .startRangeBoundary: return .supportBlack100
+        case .startRangeBoundary: return .black
         case .none: return isToday ? colors.textHighEmphasis : colors.textMediumEmphasis
         }
     }
@@ -236,14 +236,14 @@ class CalendarDayView: BaseView {
                 statusString = status.isEmpty ? "" : "\(status.count)"
             }
 
-            accessoryLabel.attributedText = statusString.attributed(fontStyle: .bodySmall,
+            accessoryLabel.attributedText = statusString.attributed(fontStyle: .caption,
                                                                     color: colors.textDisabled,
                                                                     alignment: .center)
         }
 
         // day label
         let textColor = selectionStyle.textColor(colors: colors, isToday: isToday)
-        dayLabel.attributedText = "\(day.day)".attributed(fontStyle: .bodyLarge,
+        dayLabel.attributedText = "\(day.day)".attributed(fontStyle: .caption,
                                                           color: textColor,
                                                           alignment: .center)
     }

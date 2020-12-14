@@ -260,9 +260,12 @@ public protocol Constants {
     var expandButtonTitleCaretSpacing: CGFloat { get }
 
     // MARK: Status View
-
-    /// The width of the dot in a `StatusView`.
-    var statusViewDotWidth: CGFloat { get }
+    
+    /// The amount of rounding to apply to the corners of an `StatusView`.
+    var statusViewCornerRadius: CGFloat { get }
+    
+    /// The height of a `StatusView`.
+    var statusViewHeight: CGFloat { get }
 
     // MARK: Text Input
 

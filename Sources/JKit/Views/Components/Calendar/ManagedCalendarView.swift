@@ -207,7 +207,7 @@ class ManagedCalendarView {
         }
 
         let weekdayString = self.calendar.shortWeekdaySymbols[monthAndDayIndex.dayIndex].uppercased()
-        label.attributedText = weekdayString.attributed(fontStyle: .bodyLarge,
+        label.attributedText = weekdayString.attributed(fontStyle: .caption,
                                                         color: textColor,
                                                         alignment: .center)
     }
@@ -217,10 +217,9 @@ class ManagedCalendarView {
         let monthHeaderString: String = (month.year == todayComponents.year)
             ? monthString : "\(monthString) \(month.year)"
 
-        label.attributedText = monthHeaderString.attributed(fontStyle: .labelLarge,
+        label.attributedText = monthHeaderString.attributed(fontStyle: .h3,
                                                             color: self.theme.colors.textHighEmphasis,
-                                                            alignment: .center,
-                                                            additionalAttributes: FontStyle.attributesUnderline())
+                                                            alignment: .center)
     }
 
     // MARK: Selection

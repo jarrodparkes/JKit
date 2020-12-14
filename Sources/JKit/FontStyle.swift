@@ -1,82 +1,66 @@
 import UIKit
 
-// MARK: - FontStyle: String
+// MARK: - FontStyle
 
-public enum FontStyle: String {
-    case h1 = "H1"
-    case h2 = "H2"
-    case h3 = "H3"
-    case h4 = "H4"
-    case h5 = "H5"
-    case h6 = "H6"
-    case buttonText = "Button Text"
-    case labelLarge = "Label Large"
-    case labelSmall = "Label Small"
-    case bodyLarge = "Body Large"
-    case bodySmall = "Body Small"
+public enum FontStyle {
+    case h1
+    case h2
+    case h3
+    case h4
+    case label
+    case body
+    case caption
 
     // MARK: Properties
-
+    
     public var font: UIFont {
-        return UIFont.systemFont(ofSize: sketchFontSize, weight: weight)
+        let customFont: UIFont?
+        switch self {
+        case .h1, .h2: customFont = UIFont(name: InterFont.semiBold.name, size: size)
+        case .h3, .h4, .label: customFont = UIFont(name: InterFont.medium.name, size: size)
+        case .body, .caption: customFont = UIFont(name: InterFont.regular.name, size: size)        
+        }
+        
+        return customFont ?? UIFont.systemFont(ofSize: size, weight: weight)
     }
 
-    public var letterSpacing: CGFloat {
-        switch self {
-        case .h1: return 0.25
-        case .h2, .h3,
-             .buttonText, .labelLarge, .bodyLarge: return 0.0
-        case .h4, .h5: return -0.4
-        case .h6: return -0.29
-        case .labelSmall: return -0.35
-        case .bodySmall: return -0.36
-        }
+    var letterSpacing: CGFloat {
+        return 0
     }
 
     var lineBreakMode: NSLineBreakMode {
         return .byWordWrapping
     }
 
-    var lineHeight: CGFloat { return sketchLineHeight / sketchFontSize }
+    var lineSpacing: CGFloat { return lineHeight / size }
 
     private var weight: UIFont.Weight {
         switch self {
-        case .h1, .h2, .h3, .h5,
-             .buttonText, .labelLarge, .labelSmall: return .medium
-        case .h4, .bodyLarge, .bodySmall: return .regular
-        case .h6: return .bold
+        case .h1, .h2: return .semibold
+        case .h3, .h4, .label: return .medium
+        case .body, .caption: return .regular
         }
     }
 
-    public var sketchLineHeight: CGFloat {
+    public var size: CGFloat {
         switch self {
-        case .h1: return 37
-        case .h2: return 32
-        case .h3: return 26
-        case .h4: return 21
-        case .h5: return 19
-        case .h6: return 14
-        case .buttonText: return 44
-        case .labelLarge: return 16
-        case .labelSmall: return 14
-        case .bodyLarge: return 16
-        case .bodySmall: return 12
-        }
-    }
-
-    public var sketchFontSize: CGFloat {
-        switch self {
-        case .h1: return 28
+        case .h1: return 30
         case .h2: return 24
-        case .h3: return 20
+        case .h3: return 18
         case .h4: return 16
-        case .h5: return 14
-        case .h6: return 10
-        case .buttonText: return 16
-        case .labelLarge: return 14
-        case .labelSmall: return 12
-        case .bodyLarge: return 12
-        case .bodySmall: return 10
+        case .label, .body: return 14
+        case .caption: return 12
+        }
+    }
+    
+    public var lineHeight: CGFloat {
+        switch self {
+        case .h1: return 40
+        case .h2: return 26
+        case .h3: return 24
+        case .h4: return 22
+        case .label, .body: return 20
+        case .caption: return 14
         }
     }
 
@@ -91,7 +75,7 @@ public enum FontStyle: String {
 
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineBreakMode = customLineBreakMode ?? lineBreakMode
-        paragraphStyle.lineSpacing = lineHeight
+        paragraphStyle.lineSpacing = lineSpacing
         paragraphStyle.alignment = alignment
         paragraphStyle.firstLineHeadIndent = indentation
         paragraphStyle.headIndent = indentation
@@ -113,5 +97,50 @@ public enum FontStyle: String {
     /// - Returns: Set of attributes for underlining attributed text.
     public static func attributesUnderline() -> [NSAttributedString.Key: Any] {
         return [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
+    }
+}
+
+// MARK: InterFont
+
+public enum InterFont {
+    case black
+    case bold
+    case extraBold
+    case extraLight
+    case light
+    case medium
+    case regular
+    case semiBold
+    case thin
+    
+    public static let fileExtension = "ttf"
+    public static let family = "Inter"
+    
+    public var fileName: String {
+        switch self {
+        case .black: return "Inter-Black-slnt=0"
+        case .bold: return "Inter-Bold-slnt=0"
+        case .extraBold: return "Inter-ExtraBold-slnt=0"
+        case .extraLight: return "Inter-ExtraLight-slnt=0"
+        case .light: return "Inter-Light-slnt=0"
+        case .medium: return "Inter-Medium-slnt=0"
+        case .regular: return "Inter-Regular-slnt=0"
+        case .semiBold: return "Inter-SemiBold-slnt=0"
+        case .thin: return "Inter-Thin-slnt=0"
+        }
+    }
+    
+    public var name: String {
+        switch self {
+        case .black: return "Inter-Black"
+        case .bold: return "Inter-Bold"
+        case .extraBold: return "Inter-ExtraBold"
+        case .extraLight: return "Inter-ExtraLight"
+        case .light: return "Inter-Light"
+        case .medium: return "Inter-Medium"
+        case .regular: return "Inter-Regular"
+        case .semiBold: return "Inter-SemiBold"
+        case .thin: return "Inter-Thin"
+        }
     }
 }

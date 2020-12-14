@@ -16,30 +16,26 @@ public protocol StatusViewDisplayable {
 public class StatusView: BaseView {
 
     // MARK: Properties
-
-    private let dotView = UIView(frame: .zero)
+    
     private let label = UILabel(frame: .zero)
+    private var height: NSLayoutConstraint?
 
     public override var visualConstraintViews: [String: AnyObject] {
         return [
-            "label": label,
-            "dotView": dotView
+            "label": label
         ]
     }
 
     public override var visualConstraints: [String] {
         return [
-            "H:|[dotView]-10-[label]|",
-            "V:|[label]|"
+            "H:|[label]|",
+            "V:|-8-[label]-8-|"
         ]
     }
-
-    private var centerDot: NSLayoutConstraint?
 
     // MARK: BaseView
 
     public override func addSubviews() {
-        addSubview(dotView)
         addSubview(label)
     }
 
@@ -49,33 +45,21 @@ public class StatusView: BaseView {
         let colors = theme.colors
         let constants = theme.constants
 
-        if centerDot == nil {
-            centerDot = NSLayoutConstraint(item: dotView,
-                                           attribute: .centerY,
-                                           relatedBy: .equal,
-                                           toItem: self,
-                                           attribute: .centerY,
-                                           multiplier: 1,
-                                           constant: 0)
-            if let centerDot = centerDot {
-                NSLayoutConstraint.activate([centerDot])
+        if height == nil {
+            height = label.heightAnchor.constraint(equalToConstant: constants.statusViewHeight)
+            if let height = height {
+                NSLayoutConstraint.activate([height])
             }
         }
-
-        let dotWidth: CGFloat = constants.statusViewDotWidth
-        NSLayoutConstraint.activate([
-            dotView.heightAnchor.constraint(equalToConstant: dotWidth),
-            dotView.widthAnchor.constraint(equalToConstant: dotWidth)
-        ])
-        dotView.layer.cornerRadius = dotWidth / 2.0
-
-        let dotColor = displayable.type.color(colors: colors)
-        dotView.backgroundColor = dotColor
-        dotView.layer.borderColor = dotColor.cgColor
+        
+        let backgroundColor = displayable.type.color(colors: colors)
+        label.backgroundColor = backgroundColor
+        label.layer.borderColor = backgroundColor.cgColor
+        label.layer.cornerRadius = constants.statusViewCornerRadius
+        label.layer.masksToBounds = true
 
         label.numberOfLines = 0
-        label.attributedText = displayable.status.attributed(fontStyle: .bodyLarge,
-                                                             color: colors.textHighEmphasis,
-                                                             alignment: .left)
+        label.attributedText = displayable.status.uppercased()
+            .attributed(fontStyle: .caption, color: displayable.type.textColor(colors: colors), alignment: .center)
     }
 }

@@ -17,13 +17,12 @@ extension String {
                            indentation: CGFloat = 0,
                            lineBreakMode: NSLineBreakMode? = nil,
                            additionalAttributes: [NSAttributedString.Key: Any] = [:]) -> NSAttributedString {
-        let casedString = (fontStyle == .h6) ? self.uppercased() : self
         let attributes = fontStyle.attributesWith(textColor: color,
                                                   alignment: alignment,
                                                   indentation: indentation,
                                                   lineBreakMode: lineBreakMode,
                                                   additionalAttributes: additionalAttributes)
-        return NSAttributedString(string: casedString, attributes: attributes)
+        return NSAttributedString(string: self, attributes: attributes)
     }
 
     /// Returns the `Character` located at `index`, if exists.

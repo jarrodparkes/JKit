@@ -10,4 +10,7 @@ public protocol Theme {
 
     /// An object that defines all the images for JKit.
     var images: Images { get }
+    
+    /// A method for loading custom fonts.
+    static func loadFonts()
 }

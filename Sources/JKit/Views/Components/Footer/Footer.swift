@@ -48,9 +48,9 @@ public class Footer: BaseView {
 
     private let divider = UIView(frame: .zero)
 
-    private let leftButton = Button(frame: .zero, style: .outline(.secondary0))
-    private let centerButton = Button(frame: .zero, style: .contained(.primary))
-    private let rightButton = Button(frame: .zero, style: .contained(.primary))
+    private let leftButton = Button(frame: .zero, style: .outline(nil, nil))
+    private let centerButton = Button(frame: .zero, style: .contained(nil, nil))
+    private let rightButton = Button(frame: .zero, style: .contained(nil, nil))
 
     public override var visualConstraintViews: [String: AnyObject] {
         return [
@@ -178,20 +178,20 @@ public class Footer: BaseView {
             centerButton.isHidden = true
             leftButton.isHidden = true
             rightButton.isHidden = true
-        case .center(let title, let containedStyle):
+        case .center(let title, let textColor, let containedColor):
             buttonStackView.isHidden = false
-            centerButton.styleWith(theme: theme, style: .contained(containedStyle))
+            centerButton.styleWith(theme: theme, style: .contained(textColor, containedColor))
             centerButton.setTitle(title, for: .normal)
             centerButton.setTitle(title, for: .disabled)
             centerButton.isHidden = false
             leftButton.isHidden = true
             rightButton.isHidden = true
-        case .leftRight(let leftTitle, let rightTitle, let containedStyle):
+        case .leftRight(let leftTitle, let rightTitle, let textColor, let containedColor):
             buttonStackView.isHidden = false
-            leftButton.styleWith(theme: theme, style: .outline(.secondary0))
+            leftButton.styleWith(theme: theme, style: .outline(textColor, containedColor))
             leftButton.setTitle(leftTitle, for: .normal)
             leftButton.setTitle(leftTitle, for: .disabled)
-            rightButton.styleWith(theme: theme, style: .contained(containedStyle))
+            rightButton.styleWith(theme: theme, style: .contained(textColor, containedColor))
             rightButton.setTitle(rightTitle, for: .normal)
             rightButton.setTitle(rightTitle, for: .disabled)
             centerButton.isHidden = true
@@ -285,7 +285,7 @@ public class Footer: BaseView {
             let colors = theme.colors
             let textColor = displayable.isTappable ? colors.textFooterLabelLink : colors.textHighEmphasis
             selectionLabel.label.numberOfLines = 0
-            selectionLabel.label.attributedText = finalText.attributed(fontStyle: .labelLarge, color: textColor)
+            selectionLabel.label.attributedText = finalText.attributed(fontStyle: .label, color: textColor)
         }
     }
 

@@ -1,3 +1,5 @@
+import UIKit
+
 // MARK: - FooterButtonPosition
 
 /// Describes the location of a button within a `Footer`.
@@ -17,9 +19,9 @@ public enum FooterButtonState {
     /// No buttons shown.
     case none
     /// Two buttons shown. One on the left and right.
-    case leftRight(String, String, ButtonStyleContained)
+    case leftRight(String, String, UIColor?, UIColor?)
     /// A single button shown. Centered.
-    case center(String, ButtonStyleContained)
+    case center(String, UIColor?, UIColor?)
 }
 
 // MARK: - FooterLabelDisplayable

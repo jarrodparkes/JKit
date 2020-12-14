@@ -7,8 +7,7 @@ public struct ImagesStandard: Images, Bundlable {
     // MARK: Images
 
     public var add: UIImage? { return bundleImage(named: "Add") }
-    public var bell: UIImage? { return bundleImage(named: "Bell") }
-    public var briefcase: UIImage? { return bundleImage(named: "Briefcase") }
+    public var bell: UIImage? { return bundleImage(named: "Bell") }    
     public var camera: UIImage? { return bundleImage(named: "Camera") }
     public var caretDown: UIImage? { return bundleImage(named: "CaretDown") }
     public var caretLeft: UIImage? { return bundleImage(named: "CaretLeft") }
@@ -42,7 +41,6 @@ public struct ImagesStandard: Images, Bundlable {
     public var phoneCall: UIImage? { return bundleImage(named: "PhoneCall") }
     public var profile: UIImage? { return bundleImage(named: "Profile") }
     public var search: UIImage? { return bundleImage(named: "Search") }
-    public var ticket: UIImage? { return bundleImage(named: "Ticket") }
     public var timeClock: UIImage? { return bundleImage(named: "TimeClock") }
     public var uniform: UIImage? { return bundleImage(named: "Uniform") }
     public var user: UIImage? { return bundleImage(named: "User") }

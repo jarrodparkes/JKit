@@ -75,18 +75,18 @@ public class ActionListCell: BaseTableViewCell {
         // title
         let titleTextColor = displayable.customTitleTextColor(colors: colors) ?? textColor
         textLabel?.numberOfLines = 0
-        textLabel?.attributedText = displayable.title.attributed(fontStyle: .h5, color: titleTextColor)
+        textLabel?.attributedText = displayable.title.attributed(fontStyle: .label, color: titleTextColor)
 
         // subtitle
         let subtitle = displayable.subtitle ?? ""
         detailTextLabel?.numberOfLines = 0
-        detailTextLabel?.attributedText = subtitle.attributed(fontStyle: .bodyLarge, color: textColor)
+        detailTextLabel?.attributedText = subtitle.attributed(fontStyle: .body, color: textColor)
 
         // detail
         let detailDisplayable = displayable.accessoryStyle.detailDisplayable
         let detailString = detailDisplayable?.detail ?? ""
         let detailTextColor = detailDisplayable?.customTextColor(colors: colors) ?? textColor
-        accessoryDetailLabel?.attributedText = detailString.attributed(fontStyle: .bodyLarge,
+        accessoryDetailLabel?.attributedText = detailString.attributed(fontStyle: .body,
                                                                        color: detailTextColor,
                                                                        alignment: .right)
 

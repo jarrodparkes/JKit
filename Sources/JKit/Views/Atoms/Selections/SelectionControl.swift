@@ -189,7 +189,7 @@ public class SelectionControl: BaseControl {
         textStackView.spacing = constants.selectionControlTextSpacing
 
         titleLabel.label.numberOfLines = 0
-        titleLabel.label.attributedText = displayable.title.attributed(fontStyle: .labelLarge,
+        titleLabel.label.attributedText = displayable.title.attributed(fontStyle: .label,
                                                                        color: colors.textHighEmphasis)
 
         tipLabel.label.numberOfLines = 0
@@ -198,7 +198,7 @@ public class SelectionControl: BaseControl {
             tipLabel.isHidden = false
 
             let additionalAttributes = (displayable.tipLinkable) ? FontStyle.attributesUnderline() : [:]
-            tipLabel.label.attributedText = tip.attributed(fontStyle: .labelLarge,
+            tipLabel.label.attributedText = tip.attributed(fontStyle: .body,
                                                            color: colors.textMediumEmphasis,
                                                            additionalAttributes: additionalAttributes)
         } else {

@@ -7,22 +7,22 @@ public struct ColorsStandard: Colors, Bundlable {
     // MARK: Action List
 
     public var tintActionListIcon: UIColor {
-        return bundleColor(named: "TintActionListIcon", fallbackColor: .supportBlack100)
+        return bundleColor(named: "TintActionListIcon", fallbackColor: .black)
     }
 
     // MARK: Alert View
 
     public var backgroundAlert: UIColor {
-        return bundleColor(named: "BackgroundAlert", fallbackColor: .surfaceBlack)
+        return bundleColor(named: "BackgroundAlert", fallbackColor: .black)
     }
     public var colorAlertError: UIColor {
-        return bundleColor(named: "ColorAlertError", fallbackColor: .errorRed)
+        return bundleColor(named: "ColorAlertError", fallbackColor: .red)
     }
     public var colorAlertInformation: UIColor {
-        return bundleColor(named: "ColorAlertInformation", fallbackColor: .stateBlue)
+        return bundleColor(named: "ColorAlertInformation", fallbackColor: .blue)
     }
     public var colorAlertSuccess: UIColor {
-        return bundleColor(named: "ColorAlertSuccess", fallbackColor: .stateGreen)
+        return bundleColor(named: "ColorAlertSuccess", fallbackColor: .green)
     }
     public var tintAlertCloseButton: UIColor {
         return bundleColor(named: "TintAlertCloseButton", fallbackColor: .white)
@@ -31,25 +31,25 @@ public struct ColorsStandard: Colors, Bundlable {
     // MARK: Bar Button Item
 
     public var backgroundButtonBarBadge: UIColor {
-        return bundleColor(named: "BackgroundButtonBarBadge", fallbackColor: .errorRed)
+        return bundleColor(named: "BackgroundButtonBarBadge", fallbackColor: .red)
     }
     public var tintImageBarButtonItem: UIColor {
-        return bundleColor(named: "TintImageBarButtonItem", fallbackColor: .surfaceBlack)
+        return bundleColor(named: "TintImageBarButtonItem", fallbackColor: .black)
     }
 
     // MARK: Button
 
     public var tintButtonImagePrimary: UIColor {
-        return bundleColor(named: "TintButtonImagePrimary", fallbackColor: .supportBlack100)
+        return bundleColor(named: "TintButtonImagePrimary", fallbackColor: .black)
     }
     public var tintButtonImageDisabled: UIColor {
-        return bundleColor(named: "TintButtonImageDisabled", fallbackColor: .supportGrey400)
+        return bundleColor(named: "TintButtonImageDisabled", fallbackColor: .gray)
     }
 
     // MARK: Borders
 
     public var borderDisabled: UIColor {
-        return bundleColor(named: "BorderDisabled", fallbackColor: .supportGrey400)
+        return bundleColor(named: "BorderDisabled", fallbackColor: .gray)
     }
 
     // MARK: Calendar
@@ -58,25 +58,25 @@ public struct ColorsStandard: Colors, Bundlable {
         return bundleColor(named: "BackgroundCalendar", fallbackColor: .white)
     }
     public var backgroundCalendarDayHighlighted: UIColor {
-        return bundleColor(named: "BackgroundCalendarDayHighlighted", fallbackColor: .supportGrey300)
+        return bundleColor(named: "BackgroundCalendarDayHighlighted", fallbackColor: .gray)
     }
     public var backgroundCalendarDayNeedsAttention: UIColor {
-        return bundleColor(named: "BackgroundCalendarDayNeedsAttention", fallbackColor: .errorRed)
+        return bundleColor(named: "BackgroundCalendarDayNeedsAttention", fallbackColor: .red)
     }
     public var backgroundCalendarDayNormal: UIColor {
-        return bundleColor(named: "BackgroundCalendarDayNormal", fallbackColor: .surfaceBlack)
+        return bundleColor(named: "BackgroundCalendarDayNormal", fallbackColor: .black)
     }
     public var backgroundCalendarRangeBoundary: UIColor {
-        return bundleColor(named: "BackgroundCalendarRangeBoundary", fallbackColor: .stateBlue)
+        return bundleColor(named: "BackgroundCalendarRangeBoundary", fallbackColor: .blue)
     }
     public var backgroundCalendarRangeBoundaryStart: UIColor {
-        return bundleColor(named: "BackgroundCalendarRangeBoundaryStart", fallbackColor: .secondaryBlue)
+        return bundleColor(named: "BackgroundCalendarRangeBoundaryStart", fallbackColor: .cyan)
     }
     public var backgroundCalendarRangeBoundaryInactive: UIColor {
-        return bundleColor(named: "BackgroundCalendarRangeBoundaryInactive", fallbackColor: .primaryBeige)
+        return bundleColor(named: "BackgroundCalendarRangeBoundaryInactive", fallbackColor: .purple)
     }
     public var tintCalendarButton: UIColor {
-        return bundleColor(named: "TintCalendarButton", fallbackColor: .surfaceBlack)
+        return bundleColor(named: "TintCalendarButton", fallbackColor: .black)
     }
 
     // MARK: Cells
@@ -85,40 +85,16 @@ public struct ColorsStandard: Colors, Bundlable {
         return bundleColor(named: "BackgroundCell", fallbackColor: .white)
     }
     public var backgroundCellPressed: UIColor {
-        return bundleColor(named: "BackgroundCellPressed", fallbackColor: .supportGrey200)
+        return bundleColor(named: "BackgroundCellPressed", fallbackColor: .lightGray)
     }
 
     // MARK: Contained Button
 
     public var backgroundButtonContainedDisabled: UIColor {
-        return bundleColor(named: "BackgroundButtonContainedDisabled", fallbackColor: .supportGrey300)
-    }
-    public var backgroundButtonContainedPrimary: UIColor {
-        return bundleColor(named: "BackgroundButtonContainedPrimary", fallbackColor: .surfaceBlack)
-    }
-    public var backgroundButtonContainedSecondary1: UIColor {
-        return bundleColor(named: "BackgroundButtonContainedSecondary1", fallbackColor: .secondaryGreen)
-    }
-    public var backgroundButtonContainedSecondary2: UIColor {
-        return bundleColor(named: "BackgroundButtonContainedSecondary2", fallbackColor: .secondaryPink)
-    }
-    public var backgroundButtonContainedSecondary3: UIColor {
-        return bundleColor(named: "BackgroundButtonContainedSecondary3", fallbackColor: .secondaryOrange)
-    }
-    public var backgroundButtonContainedSecondary4: UIColor {
-        return bundleColor(named: "BackgroundButtonContainedSecondary4", fallbackColor: .secondaryPurple)
-    }
-    public var backgroundButtonContainedSecondary5: UIColor {
-        return bundleColor(named: "BackgroundButtonContainedSecondary5", fallbackColor: .secondaryBlue)
+        return bundleColor(named: "BackgroundButtonContainedDisabled", fallbackColor: .gray)
     }
     public var borderButtonContained: UIColor {
         return bundleColor(named: "BorderButtonContained", fallbackColor: .white)
-    }
-    public var textButtonContainedPrimary: UIColor {
-        return bundleColor(named: "TextButtonContainedPrimary", fallbackColor: .white)
-    }
-    public var textButtonContainedSecondary: UIColor {
-        return bundleColor(named: "TextButtonContainedSecondary", fallbackColor: .supportBlack300)
     }
 
     // MARK: Footer
@@ -127,160 +103,136 @@ public struct ColorsStandard: Colors, Bundlable {
         return bundleColor(named: "BackgroundFooter", fallbackColor: .white)
     }
     public var textFooterLabelLink: UIColor {
-        return bundleColor(named: "TextFooterLabelLink", fallbackColor: .stateBlue)
+        return bundleColor(named: "TextFooterLabelLink", fallbackColor: .blue)
     }
 
     // MARK: General
 
     public var backgroundDivider: UIColor {
-        return bundleColor(named: "BackgroundDivider", fallbackColor: .supportGrey200)
+        return bundleColor(named: "BackgroundDivider", fallbackColor: .lightGray)
     }
 
     // MARK: Menu
 
     public var borderButtonMenu: UIColor {
-        return bundleColor(named: "BorderButtonMenu", fallbackColor: .supportGrey300)
+        return bundleColor(named: "BorderButtonMenu", fallbackColor: .gray)
     }
     public var borderButtonMenuDisabled: UIColor {
         return bundleColor(named: "BorderButtonMenuDisabled", fallbackColor: UIColor.white.withAlphaComponent(0.6))
     }
     public var borderButtonMenuSelected: UIColor {
-        return bundleColor(named: "BorderButtonMenuSelected", fallbackColor: .stateBlue)
+        return bundleColor(named: "BorderButtonMenuSelected", fallbackColor: .blue)
     }
     public var textButtonMenuPlaceholder: UIColor {
-        return bundleColor(named: "TextButtonMenuPlaceholder", fallbackColor: .supportGrey500)
+        return bundleColor(named: "TextButtonMenuPlaceholder", fallbackColor: .gray)
     }
     public var textButtonMenuSelected: UIColor {
-        return bundleColor(named: "TextButtonMenuSelected", fallbackColor: .supportBlack100)
+        return bundleColor(named: "TextButtonMenuSelected", fallbackColor: .black)
     }
 
     // MARK: Menu Picker
 
     public var textMenuPickerRow: UIColor {
-        return bundleColor(named: "TextMenuPickerRow", fallbackColor: .supportBlack300)
+        return bundleColor(named: "TextMenuPickerRow", fallbackColor: .black)
     }
 
     // MARK: Notes
 
     public var backgroundNotes: UIColor {
-        return bundleColor(named: "BackgroundNotes", fallbackColor: .supportGrey200)
+        return bundleColor(named: "BackgroundNotes", fallbackColor: .lightGray)
     }
     public var textNotesLink: UIColor {
-        return bundleColor(named: "TextNotesLink", fallbackColor: .stateBlue)
-    }
-
-    // MARK: Outline Button
-
-    public var borderButtonOutlinePrimary: UIColor {
-        return bundleColor(named: "BorderButtonOutlinePrimary", fallbackColor: .surfaceBlack)
-    }
-    public var borderButtonOutlineSecondary0: UIColor {
-        return bundleColor(named: "BorderButtonOutlineSecondary0", fallbackColor: .surfaceBlack)
-    }
-    public var borderButtonOutlineSecondary1: UIColor {
-        return bundleColor(named: "BorderButtonOutlineSecondary1", fallbackColor: .surfaceBlack)
-    }
-    public var borderButtonOutlineSecondary2: UIColor {
-        return bundleColor(named: "BorderButtonOutlineSecondary2", fallbackColor: .surfaceBlack)
-    }
-    public var borderButtonOutlineSecondary3: UIColor {
-        return bundleColor(named: "BorderButtonOutlineSecondary3", fallbackColor: .surfaceBlack)
-    }
-    public var borderButtonOutlineSecondary4: UIColor {
-        return bundleColor(named: "BorderButtonOutlineSecondary4", fallbackColor: .surfaceBlack)
-    }
-    public var borderButtonOutlineSecondary5: UIColor {
-        return bundleColor(named: "BorderButtonOutlineSecondary5", fallbackColor: .surfaceBlack)
-    }
-    public var textButtonOutlinePrimary: UIColor {
-        return bundleColor(named: "TextButtonOutlinePrimary", fallbackColor: .surfaceBlack)
-    }
-    public var textButtonOutlineSecondary: UIColor {
-        return bundleColor(named: "TextButtonOutlineSecondary", fallbackColor: .surfaceBlack)
+        return bundleColor(named: "TextNotesLink", fallbackColor: .blue)
     }
 
     // MARK: Selection Button
 
     public var backgroundSelectionButtonCheckbox: UIColor {
-        return bundleColor(named: "BackgroundSelectionButtonCheckbox", fallbackColor: .surfaceBlack)
+        return bundleColor(named: "BackgroundSelectionButtonCheckbox", fallbackColor: .black)
     }
     public var tintSelectionButtonCheckbox: UIColor {
         return bundleColor(named: "TintSelectionButtonCheckbox", fallbackColor: .white)
     }
     public var tintSelectionButtonPressed: UIColor {
-        return bundleColor(named: "TintSelectionButtonPressed", fallbackColor: .primaryBeige2)
+        return bundleColor(named: "TintSelectionButtonPressed", fallbackColor: .lightGray)
     }
     public var tintSelectionButtonRadio: UIColor {
-        return bundleColor(named: "TintSelectionButtonRadio", fallbackColor: .surfaceBlack)
+        return bundleColor(named: "TintSelectionButtonRadio", fallbackColor: .black)
     }
 
     // MARK: Status View
 
-    public var colorStatusAlert: UIColor {
-        return bundleColor(named: "ColorStatusAlert", fallbackColor: .errorRed)
+    public var backgroundStatusAlert: UIColor {
+        return bundleColor(named: "BackgroundStatusAlert", fallbackColor: .red)
     }
-    public var colorStatusInactive: UIColor {
-        return bundleColor(named: "ColorStatusInactive", fallbackColor: .supportGrey300)
+    public var backgroundStatusInactive: UIColor {
+        return bundleColor(named: "BackgroundStatusInactive", fallbackColor: .gray)
     }
-    public var colorStatusNormal: UIColor {
-        return bundleColor(named: "ColorStatusNormal", fallbackColor: .surfaceBlack)
+    public var backgroundStatusNormal: UIColor {
+        return bundleColor(named: "BackgroundStatusNormal", fallbackColor: .black)
     }
-    public var colorStatusSuccess: UIColor {
-        return bundleColor(named: "ColorStatusSuccess", fallbackColor: .stateGreen)
+    public var backgroundStatusSuccess: UIColor {
+        return bundleColor(named: "BackgroundStatusSuccess", fallbackColor: .green)
     }
-    public var colorStatusWarning: UIColor {
-        return bundleColor(named: "ColorStatusWarning", fallbackColor: .stateYellow)
+    public var backgroundStatusWarning: UIColor {
+        return bundleColor(named: "BackgroundStatusWarning", fallbackColor: .yellow)
+    }
+    public var textStatusAlert: UIColor {
+        return bundleColor(named: "TextStatusAlert", fallbackColor: .black)
+    }
+    public var textStatusInactive: UIColor {
+        return bundleColor(named: "TextStatusInactive", fallbackColor: .black)
+    }
+    public var textStatusNormal: UIColor {
+        return bundleColor(named: "TextStatusNormal", fallbackColor: .white)
+    }
+    public var textStatusSuccess: UIColor {
+        return bundleColor(named: "TextStatusSuccess", fallbackColor: .black)
+    }
+    public var textStatusWarning: UIColor {
+        return bundleColor(named: "TextStatusWarning", fallbackColor: .black)
     }
 
     // MARK: Text
 
     public var textDisabled: UIColor {
-        return bundleColor(named: "TextDisabled", fallbackColor: .textDisabled)
+        return bundleColor(named: "TextDisabled", fallbackColor: .gray)
     }
     public var textMediumEmphasis: UIColor {
-        return bundleColor(named: "TextMediumEmphasis", fallbackColor: .textMediumEmphasis)
+        return bundleColor(named: "TextMediumEmphasis", fallbackColor: .darkGray)
     }
     public var textHighEmphasis: UIColor {
-        return bundleColor(named: "TextHighEmphasis", fallbackColor: .textHighEmphasis)
+        return bundleColor(named: "TextHighEmphasis", fallbackColor: .black)
     }
     public var textHighEmphasisInverted: UIColor {
         return bundleColor(named: "TextHighEmphasisInverted", fallbackColor: .white)
     }
     public var textError: UIColor {
-        return bundleColor(named: "TextError", fallbackColor: .errorRed)
-    }
-
-    // MARK: Text Button
-
-    public var textButtonTextPrimary: UIColor {
-        return bundleColor(named: "TextButtonTextPrimary", fallbackColor: .primaryGold)
-    }
-    public var textButtonTextSecondary: UIColor {
-        return bundleColor(named: "TextButtonTextSecondary", fallbackColor: .textHighEmphasis)
+        return bundleColor(named: "TextError", fallbackColor: .red)
     }
 
     // MARK: Text Input
 
     public var colorTextInputNormal: UIColor {
-        return bundleColor(named: "ColorTextInputNormal", fallbackColor: .supportGrey300)
+        return bundleColor(named: "ColorTextInputNormal", fallbackColor: .gray)
     }
     public var colorTextInputError: UIColor {
-        return bundleColor(named: "ColorTextInputError", fallbackColor: .errorRed)
+        return bundleColor(named: "ColorTextInputError", fallbackColor: .red)
     }
     public var colorTextInputSelected: UIColor {
-        return bundleColor(named: "ColorTextInputSelected", fallbackColor: .stateBlue)
+        return bundleColor(named: "ColorTextInputSelected", fallbackColor: .blue)
     }
     public var textInputPlaceholder: UIColor {
-        return bundleColor(named: "TextInputPlaceholder", fallbackColor: .supportGrey400)
+        return bundleColor(named: "TextInputPlaceholder", fallbackColor: .gray)
     }
     public var textInputTip: UIColor {
-        return bundleColor(named: "TextInputTip", fallbackColor: .supportGrey400)
+        return bundleColor(named: "TextInputTip", fallbackColor: .gray)
     }
     public var tintTextInputCursor: UIColor {
-        return bundleColor(named: "TintTextInputCursor", fallbackColor: .textHighEmphasis)
+        return bundleColor(named: "TintTextInputCursor", fallbackColor: .black)
     }
     public var tintTextInputIcon: UIColor {
-        return bundleColor(named: "TintTextInputIcon", fallbackColor: .supportGrey400)
+        return bundleColor(named: "TintTextInputIcon", fallbackColor: .gray)
     }
 
     // MARK: Initializer

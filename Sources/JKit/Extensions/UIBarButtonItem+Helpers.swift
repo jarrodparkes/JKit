@@ -13,7 +13,7 @@ extension UIBarButtonItem {
         let label = UILabel()
         let title = text ?? ""
 
-        label.attributedText = title.attributed(fontStyle: .h5, color: colors.textHighEmphasis)
+        label.attributedText = title.attributed(fontStyle: .label, color: colors.textHighEmphasis)
         label.sizeToFit()
 
         return UIBarButtonItem(customView: label)
