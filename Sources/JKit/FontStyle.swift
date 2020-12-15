@@ -143,4 +143,26 @@ public enum InterFont {
         case .thin: return "Inter-Thin"
         }
     }
+    
+    public static func loadFonts() {
+        guard let bundle = ThemeStandard.bundle else { return }
+        
+        let fonts: [InterFont] = [
+            .black,
+            .bold,
+            .extraBold,
+            .extraLight,
+            .light,
+            .medium,
+            .regular,
+            .semiBold,
+            .thin
+        ]
+        
+        for font in fonts {
+            _ = UIFont.registerFont(bundle: bundle,
+                                    fontName: font.fileName,
+                                    fontExtension: InterFont.fileExtension)
+        }
+    }
 }

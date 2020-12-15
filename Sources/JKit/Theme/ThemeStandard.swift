@@ -12,29 +12,15 @@ public struct ThemeStandard: Theme, Bundlable {
 
     // MARK: Initializer
 
-    public init () {}
-
-    // MARK: Helpers
-
-    public static func loadFonts() {
-        guard let bundle = ThemeStandard.bundle else { return }
+    public init() {
+        // load fonts
+        InterFont.loadFonts()
+                
+        let navBarTitleAttributes = [NSAttributedString.Key.font: FontStyle.h3.font as Any]
+        let barButtonTitleAttributes = [NSAttributedString.Key.font: FontStyle.h4.font as Any]
         
-        let fonts: [InterFont] = [
-            .black,
-            .bold,
-            .extraBold,
-            .extraLight,
-            .light,
-            .medium,
-            .regular,
-            .semiBold,
-            .thin
-        ]
-        
-        for font in fonts {
-            _ = UIFont.registerFont(bundle: bundle,
-                                    fontName: font.fileName,
-                                    fontExtension: InterFont.fileExtension)
-        }
+        // set appearances
+        UINavigationBar.appearance().titleTextAttributes = navBarTitleAttributes
+        UIBarButtonItem.appearance().setTitleTextAttributes(barButtonTitleAttributes, for: .normal)
     }
 }
