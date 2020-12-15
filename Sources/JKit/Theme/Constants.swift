@@ -278,8 +278,14 @@ public protocol Constants {
     /// The vertical spacing between views in a `TextInput`.
     var textInputContentVerticalSpacing: CGFloat { get }
 
-    /// The `FontStyle` to use for a `TextInput` control and its character count.
+    /// The `FontStyle` to use for a `TextInput` control.
     var textInputFontStyle: FontStyle { get }
+    
+    /// The `FontStyle` to use for a `TextInput` character count.
+    var textInputCharacterCountFontStyle: FontStyle { get }
+    
+    /// The `FontStyle` to use for a secure `TextInput` control.
+    var textInputSecureFontStyle: FontStyle { get }
 
     /// The width and length for the icon frame in a `TextInput`.
     var textInputIconFrameSideLength: CGFloat { get }

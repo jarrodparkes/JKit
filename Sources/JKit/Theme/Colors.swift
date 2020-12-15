@@ -120,8 +120,10 @@ public protocol Colors {
     var tintSelectionButtonCheckbox: UIColor { get }
     /// Tint color for when a selection button is pressed.
     var tintSelectionButtonPressed: UIColor { get }
-    /// Tint color for radio buttons.
-    var tintSelectionButtonRadio: UIColor { get }
+    /// Tint color for the inner circle of a radio button.
+    var tintSelectionButtonRadioInner: UIColor { get }
+    /// Tint color for the outer circle of a radio button.
+    var tintSelectionButtonRadioOuter: UIColor { get }
 
     // MARK: Status View
     

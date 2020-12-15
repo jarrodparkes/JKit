@@ -99,7 +99,9 @@ class DetailTextField: BaseControl {
             }
         }
 
-        let fontStyle = constants.textInputFontStyle
+        let fontStyle = displayable.useSecureTextEntry ?
+            constants.textInputSecureFontStyle : constants.textInputFontStyle
+        
         textField.font = fontStyle.font
 
         if let formatter = formatter, let formattedText = formatter.formatText(displayable.value) {
@@ -149,12 +151,15 @@ class DetailTextField: BaseControl {
     // MARK: Helpers
 
     func manuallySetText(_ text: String) {
-        guard let theme = theme else { return }
+        guard let theme = theme, let displayable = displayable else { return }
 
         let colors = theme.colors
         let constants = theme.constants
 
-        textField.attributedText = text.attributed(fontStyle: constants.textInputFontStyle,
+        let fontStyle = displayable.useSecureTextEntry ?
+            constants.textInputSecureFontStyle : constants.textInputFontStyle
+        
+        textField.attributedText = text.attributed(fontStyle: fontStyle,
                                                    color: colors.textHighEmphasis)
     }
 }

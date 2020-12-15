@@ -156,8 +156,11 @@ public struct ColorsStandard: Colors, Bundlable {
     public var tintSelectionButtonPressed: UIColor {
         return bundleColor(named: "TintSelectionButtonPressed", fallbackColor: .lightGray)
     }
-    public var tintSelectionButtonRadio: UIColor {
-        return bundleColor(named: "TintSelectionButtonRadio", fallbackColor: .black)
+    public var tintSelectionButtonRadioInner: UIColor {
+        return bundleColor(named: "TintSelectionButtonRadioInner", fallbackColor: .black)
+    }
+    public var tintSelectionButtonRadioOuter: UIColor {
+        return bundleColor(named: "TintSelectionButtonRadioOuter", fallbackColor: .black)
     }
 
     // MARK: Status View

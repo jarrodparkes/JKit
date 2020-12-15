@@ -147,6 +147,8 @@ public struct ConstantsStandard: Constants {
     public var textInputContentInsets: UIEdgeInsets { return UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 0) }
     public var textInputContentVerticalSpacing: CGFloat { return 8 }
     public var textInputFontStyle: FontStyle { return .body }
+    public var textInputCharacterCountFontStyle: FontStyle { return .body }
+    public var textInputSecureFontStyle: FontStyle { return .caption }
     public var textInputIconFrameSideLength: CGFloat { return textInputSystemClearIconSideLength * 2 }
     public var textInputIconInsets: UIEdgeInsets { return UIEdgeInsets(uniform: textInputSystemClearIconSideLength / 2) }
     public var textInputMaxCharacters: UInt { return 100 }

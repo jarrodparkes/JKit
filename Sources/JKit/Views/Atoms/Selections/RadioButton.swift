@@ -174,13 +174,14 @@ final class RadioButton: UIButton, SelectionControlButton {
 
     func styleSelected(theme: Theme, selected: Bool) {
         let colors = theme.colors
-        let tintColor = colors.tintSelectionButtonRadio
+        let innerTint = colors.tintSelectionButtonRadioInner
+        let outerTint = colors.tintSelectionButtonRadioOuter
 
         if selected {
-            innerCircleCircleColor = tintColor
-            outerCircleColor = tintColor
+            innerCircleCircleColor = innerTint
+            outerCircleColor = outerTint
         } else {
-            outerCircleColor = tintColor
+            outerCircleColor = outerTint
         }
     }
 
