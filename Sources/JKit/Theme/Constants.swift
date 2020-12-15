@@ -230,8 +230,11 @@ public protocol Constants {
 
     // MARK: Selection Control
 
-    /// The spacing between a `SelectionControl` button and title.
-    var selectionControlButtonToTitleSpacing: CGFloat { get }
+    /// The spacing between a checkbox `SelectionControl` and title.
+    var selectionControlButtonCheckboxToTitleSpacing: CGFloat { get }
+    
+    /// The spacing between a radio `SelectionControl` and title.
+    var selectionControlButtonRadioToTitleSpacing: CGFloat { get }
 
     /// The spacing between `SelectionControl` title and tip.
     var selectionControlTextSpacing: CGFloat { get }

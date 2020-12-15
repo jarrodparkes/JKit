@@ -25,7 +25,7 @@ final class CheckboxButton: UIButton, SelectionControlButton {
         didSet { deSelectedSquare.strokeColor = deSelectedSquareColor.cgColor }
     }
 
-    var deSelectedSquareWidth: CGFloat = 2.0 {
+    var deSelectedSquareWidth: CGFloat = 1.0 {
         didSet { setSquareLayers() }
     }
 

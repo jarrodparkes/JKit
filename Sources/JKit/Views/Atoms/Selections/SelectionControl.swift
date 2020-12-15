@@ -179,9 +179,9 @@ public class SelectionControl: BaseControl {
         let colors = theme.colors
 
         if case .radio = type {
-            mainStackView.spacing = constants.selectionControlButtonToTitleSpacing
+            mainStackView.spacing = constants.selectionControlButtonRadioToTitleSpacing
         } else {
-            mainStackView.spacing = constants.selectionControlButtonToTitleSpacing
+            mainStackView.spacing = constants.selectionControlButtonCheckboxToTitleSpacing
             mainStackView.isLayoutMarginsRelativeArrangement = true
             mainStackView.layoutMargins = constants.checkboxLayoutMargins
         }

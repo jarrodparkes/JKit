@@ -21,11 +21,11 @@ final class RadioButton: UIButton, SelectionControlButton {
         didSet { setFillState() }
     }
 
-    var outerCircleLineWidth: CGFloat = 2.0 {
+    var outerCircleLineWidth: CGFloat = 1.0 {
         didSet { setCircleLayouts() }
     }
 
-    var innerCircleGap: CGFloat = 2.0 {
+    var innerCircleGap: CGFloat = 3.0 {
         didSet { setCircleLayouts() }
     }
 
@@ -205,7 +205,7 @@ final class RadioButton: UIButton, SelectionControlButton {
         outerCircleLayer.path = circlePath.cgPath
 
         innerCircleLayer.frame = bounds
-        innerCircleLayer.lineWidth = outerCircleLineWidth
+        innerCircleLayer.lineWidth = innerCircleGap * 2
         innerCircleLayer.path = fillCirclePath.cgPath
 
         pressedCircleLayer.frame = bounds
@@ -213,6 +213,7 @@ final class RadioButton: UIButton, SelectionControlButton {
     }
 
     private func setFillState() {
-        innerCircleLayer.fillColor = isSelected ? innerCircleCircleColor.cgColor : UIColor.clear.cgColor
+        innerCircleLayer.strokeColor = isSelected ? innerCircleCircleColor.cgColor : UIColor.clear.cgColor
+        //innerCircleLayer.fillColor = isSelected ? UIColor.white.cgColor : UIColor.clear.cgColor
     }
 }

@@ -62,7 +62,7 @@ public struct ConstantsStandard: Constants {
     public var checkboxCornerRadius: CGFloat { return 5 }
     public var checkboxLayoutMargins: UIEdgeInsets { return UIEdgeInsets(top: 0, left: 2, bottom: 0, right: 0) }
     public var checkboxPressedCircleInset: CGFloat { return 4 }
-    public var checkboxSideLength: CGFloat { return 28 }
+    public var checkboxSideLength: CGFloat { return 20 }
 
     // MARK: Contained Button
 
@@ -117,11 +117,13 @@ public struct ConstantsStandard: Constants {
 
     // MARK: Radio Button
 
-    public var radioButtonDiameter: CGFloat { return 29 }
+    public var radioButtonDiameter: CGFloat { return 24 }
 
     // MARK: Selection Control
 
-    public var selectionControlButtonToTitleSpacing: CGFloat { return 18 }
+    
+    public var selectionControlButtonCheckboxToTitleSpacing: CGFloat { return 12 }
+    public var selectionControlButtonRadioToTitleSpacing: CGFloat { return 12 }
     public var selectionControlTextSpacing: CGFloat { return 6 }
 
     // MARK: Selection Group
