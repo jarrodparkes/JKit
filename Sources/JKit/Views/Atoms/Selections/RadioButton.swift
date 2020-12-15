@@ -179,7 +179,7 @@ final class RadioButton: UIButton, SelectionControlButton {
 
         if selected {
             innerCircleCircleColor = innerTint
-            outerCircleColor = outerTint
+            outerCircleColor = innerTint
         } else {
             outerCircleColor = outerTint
         }
@@ -214,6 +214,5 @@ final class RadioButton: UIButton, SelectionControlButton {
 
     private func setFillState() {
         innerCircleLayer.strokeColor = isSelected ? innerCircleCircleColor.cgColor : UIColor.clear.cgColor
-        outerCircleLayer.strokeColor = isSelected ? innerCircleCircleColor.cgColor : outerCircleColor.cgColor
     }
 }
