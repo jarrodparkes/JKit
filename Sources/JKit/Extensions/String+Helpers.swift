@@ -53,3 +53,12 @@ extension String {
         return !filter(regex: regex).isEmpty
     }
 }
+
+// MARK: - String (Helpers)
+
+extension Optional where Wrapped == String {
+    /// Is the string is empty or nil?
+    public var isEmptyOrNil: Bool {
+        return self?.isEmpty ?? true
+    }
+}

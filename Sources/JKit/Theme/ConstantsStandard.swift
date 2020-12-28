@@ -9,10 +9,12 @@ public struct ConstantsStandard: Constants {
     // MARK: Action List Cell
 
     public var actionListAccessoryImageSize: CGSize { return CGSize(width: 14, height: 44.0) }
-    public var actionListAccessoryDetailAndImageWidth: CGFloat { return 110 }
-    public var actionListAccessoryStatusAndDetailWidth: CGFloat { return 195 }
+    public var actionListAccessoryDetailAndImageWidth: CGFloat { return 110 }    
     public var actionListAccessoryViewSpacing: CGFloat { return 16 }
     public var actionListAccessoryDetailMinimumWidth: CGFloat { return 45 }
+    public var actionListContentInsets: UIEdgeInsets { UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 12) }
+    public var actionListContentSpacing: CGFloat { return 16 }
+    public var actionListTitleSpacing: CGFloat { return 4 }
 
     // MARK: Alert View
 
@@ -90,7 +92,7 @@ public struct ConstantsStandard: Constants {
     public var footerButtonSpacing: CGFloat { return 16 }
     public var footerContentInsets: UIEdgeInsets { return UIEdgeInsets(uniform: 16) }
     public var footerContentSpacing: CGFloat { return 18 }
-    public var footerParentInsets: UIEdgeInsets { return UIEdgeInsets(top: 0, left: 0, bottom: 120, right: 0) }
+    public var footerParentInsets: UIEdgeInsets { return UIEdgeInsets(top: 0, left: 0, bottom: 140, right: 0) }
 
     // MARK: General
 
@@ -138,11 +140,6 @@ public struct ConstantsStandard: Constants {
     public var expandButtonCaretImageInsets: UIEdgeInsets { return UIEdgeInsets(uniform: 10) }
     public var expandButtonTitleCaretSpacing: CGFloat { return 10 }
 
-    // MARK: Status View
-        
-    public var statusViewCornerRadius: CGFloat { return 12 }
-    public var statusViewHeight: CGFloat { return 24 }
-    
     // MARK: Text Input
 
     public var textInputCharacterCountLabelWidth: CGFloat { return 50 }

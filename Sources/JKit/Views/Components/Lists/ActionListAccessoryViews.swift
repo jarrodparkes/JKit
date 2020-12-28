@@ -19,8 +19,6 @@ public enum ActionListAccessoryViews {
     case detailOnly(ActionListDetailDisplayable?)
     /// A style showing a detail label and navigation icon.
     case detailAndNavigation(ActionListDetailDisplayable?, ActionListNavigationStyle)
-    /// A style showing a status and detail label.
-    case statusAndDetail(StatusViewDisplayable, ActionListDetailDisplayable?)
     /// A style showing no accessory views.
     case none
 
@@ -30,8 +28,7 @@ public enum ActionListAccessoryViews {
     public var detailDisplayable: ActionListDetailDisplayable? {
         switch self {
         case .detailOnly(let detailDisplayable),
-             .detailAndNavigation(let detailDisplayable, _),
-             .statusAndDetail(_, let detailDisplayable):
+             .detailAndNavigation(let detailDisplayable, _):
             return detailDisplayable
         case .none: return nil
         }
@@ -44,8 +41,7 @@ public enum ActionListAccessoryViews {
     /// - Returns: The total width to use for the accessory views.
     public func totalWidth(constants: Constants) -> CGFloat {
         switch self {
-        case .none: return 0
-        case .statusAndDetail: return constants.actionListAccessoryStatusAndDetailWidth
+        case .none: return 0        
         default: return (detailDisplayable?.detail == nil)
             ? constants.actionListAccessoryImageSize.width
             : constants.actionListAccessoryDetailAndImageWidth

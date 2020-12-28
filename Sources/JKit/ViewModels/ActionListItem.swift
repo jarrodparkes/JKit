@@ -6,6 +6,8 @@ public struct ActionListItem: ActionListCellDisplayable {
 
     // MARK: Properties
 
+    let identifier = UUID()
+    
     public let icon: UIImage?
     public let title: String
     public let subtitle: String?
@@ -91,5 +93,17 @@ public struct ActionListItem: ActionListCellDisplayable {
     
     public func customBackgroundColor(colors: Colors) -> UIColor? {
         return customBackgroundColor
+    }
+}
+
+// MARK: - ActionListItem: Hashable
+
+extension ActionListItem: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(identifier)
+    }
+    
+    public static func == (lhs: ActionListItem, rhs: ActionListItem) -> Bool {
+        return lhs.identifier == rhs.identifier
     }
 }

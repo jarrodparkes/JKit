@@ -13,15 +13,21 @@ public protocol Constants {
     /// The width of an `ActionListCell` accessory view containing a detail label and image.
     var actionListAccessoryDetailAndImageWidth: CGFloat { get }
 
-    /// The width of an `ActionListCell` accessory view containing a status view and detail label.
-    var actionListAccessoryStatusAndDetailWidth: CGFloat { get }
-
     /// The spacing between accessory views in an `ActionListCell`.
     var actionListAccessoryViewSpacing: CGFloat { get }
 
     /// The minimum width of a detail label in an `ActionListCell`.
     var actionListAccessoryDetailMinimumWidth: CGFloat { get }
-
+    
+    /// The insets for an `ActionListCell`.
+    var actionListContentInsets: UIEdgeInsets { get }
+    
+    /// The amount of spacing between the main horizonal elements in an `ActionListCell`.
+    var actionListContentSpacing: CGFloat { get }
+    
+    /// The amount of spacing between title and subtitle in an `ActionListCell`.
+    var actionListTitleSpacing: CGFloat { get }
+    
     // MARK: Alert View
 
     /// The width of the close button in an `AlertView`.
@@ -261,14 +267,6 @@ public protocol Constants {
 
     /// The spacing between the title and caret in the expand button.
     var expandButtonTitleCaretSpacing: CGFloat { get }
-
-    // MARK: Status View
-    
-    /// The amount of rounding to apply to the corners of an `StatusView`.
-    var statusViewCornerRadius: CGFloat { get }
-    
-    /// The height of a `StatusView`.
-    var statusViewHeight: CGFloat { get }
 
     // MARK: Text Input
 

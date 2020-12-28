@@ -26,61 +26,90 @@ public protocol ActionListCellDisplayable {
     func customBackgroundColor(colors: Colors) -> UIColor?
 }
 
-// MARK: - ActionListCell: BaseTableViewCell
+// MARK: - ActionListCell: BaseCollectionViewCell
 
-public class ActionListCell: BaseTableViewCell {
+public class ActionListCell: BaseCollectionViewCell {
 
     // MARK: Properties
-
-    var accessoryStatusView: StatusView?
+    
+    private let stackView = UIStackView(frame: .zero)
+    private let imageView = UIImageView(frame: .zero)
+    private let titleStackView = UIStackView(frame: .zero)
+    private let titleLabel = UILabel(frame: .zero)
+    private let subtitleLabel = UILabel(frame: .zero)
+        
     var accessoryDetailLabel: UILabel?
     var accessoryImageView: UIImageView?
-
     var accessoryStackView: UIStackView?
+    
+    // MARK: BaseCollectionViewCell
+    
+    public override func addSubviews() {
+        stackView.addArrangedSubview(imageView)
+        
+        titleStackView.axis = .vertical
+        titleStackView.addArrangedSubview(titleLabel)
+        titleStackView.addArrangedSubview(subtitleLabel)
+        stackView.addArrangedSubview(titleStackView)
+      
+        contentView.addSubview(stackView)
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let constraints = [
+            imageView.heightAnchor.constraint(equalToConstant: 16),
+            imageView.widthAnchor.constraint(equalToConstant: 16),
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+        ]
 
-    // MARK: Initializer
-
-    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+        NSLayoutConstraint.activate(constraints)
     }
-
+            
     // MARK: Style
 
     public func styleWith(theme: Theme, displayable: ActionListCellDisplayable) {
         super.styleWith(theme: theme)
         
-        if (accessoryView as? UIStackView) == nil {
-            addAccessoryViews(theme: theme)
-        }
-        
         let colors = theme.colors
         let constants = theme.constants
-        let textColor = colors.textHighEmphasis
-
-        // adjust frame based on accessory style
-        if let previousAccessoryFrame = accessoryView?.frame {
-            accessoryView?.frame = CGRect(x: 0,
-                                          y: 0,
-                                          width: displayable.accessoryStyle.totalWidth(constants: constants),
-                                          height: previousAccessoryFrame.height)
+                
+        stackView.spacing = constants.actionListContentSpacing
+        stackView.alignment = .center
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = constants.actionListContentInsets
+                
+        titleStackView.spacing = constants.actionListTitleSpacing
+        
+        if case .none = displayable.accessoryStyle {} else if accessoryStackView == nil {
+            addAccessoryViews(theme: theme)
         }
+                
+        let textColor = colors.textHighEmphasis
 
         // background
         backgroundColor = displayable.customBackgroundColor(colors: colors) ?? colors.backgroundCell
 
         // icon
-        imageView?.image = displayable.icon
-        imageView?.tintColor = displayable.customIconTintColor(colors: colors) ?? colors.tintActionListIcon
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = displayable.icon
+        imageView.isHidden = displayable.icon == nil
+        imageView.tintColor = displayable.customIconTintColor(colors: colors) ?? colors.tintActionListIcon
 
         // title
         let titleTextColor = displayable.customTitleTextColor(colors: colors) ?? textColor
-        textLabel?.numberOfLines = 0
-        textLabel?.attributedText = displayable.title.attributed(fontStyle: .label, color: titleTextColor)
+        titleLabel.numberOfLines = 0
+        titleLabel.attributedText = displayable.title.attributed(fontStyle: .label, color: titleTextColor)
 
         // subtitle
-        let subtitle = displayable.subtitle ?? ""
-        detailTextLabel?.numberOfLines = 0
-        detailTextLabel?.attributedText = subtitle.attributed(fontStyle: .body, color: textColor)
+        let subtitle = displayable.subtitle ?? ""        
+        subtitleLabel.numberOfLines = 0
+        subtitleLabel.attributedText = subtitle.attributed(fontStyle: .body, color: textColor)
+        subtitleLabel.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        subtitleLabel.isHidden = displayable.subtitle.isEmptyOrNil
 
         // detail
         let detailDisplayable = displayable.accessoryStyle.detailDisplayable
@@ -96,29 +125,21 @@ public class ActionListCell: BaseTableViewCell {
         accessoryDetailLabel?.isHidden = detailString.isEmpty
         switch displayable.accessoryStyle {
         case .detailOnly:
-            accessoryStatusView?.isHidden = true
             accessoryImageView?.isHidden = true
-            accessoryView = detailString.isEmpty ? nil : accessoryStackView
+            accessoryStackView?.isHidden = detailString.isEmpty
         case .detailAndNavigation(_, let navigationStyle):
-            accessoryStatusView?.isHidden = true
             accessoryImageView?.isHidden = false
             accessoryImageView?.image = navigationStyle.icon(images: theme.images)
-            accessoryView = (detailString.isEmpty && navigationStyle == .none) ? nil : accessoryStackView
-        case .statusAndDetail(let displayable, _):
-            accessoryStatusView?.isHidden = false
-            accessoryImageView?.isHidden = true
-            accessoryStatusView?.styleWith(theme: theme, displayable: displayable)
-            accessoryView = accessoryStackView
+            accessoryStackView?.isHidden = (detailString.isEmpty && navigationStyle == .none)
         case .none:
-            accessoryView = nil
+            accessoryStackView?.isHidden = true
         }
     }
     
     private func addAccessoryViews(theme: Theme) {
         let constants = theme.constants
         let imageSize = constants.actionListAccessoryImageSize
-        
-        accessoryStatusView = StatusView(frame: .zero)
+                
         accessoryDetailLabel = UILabel(frame: .zero)
         accessoryImageView = UIImageView(frame: CGRect(x: 0,
                                                        y: 0,
@@ -129,8 +150,8 @@ public class ActionListCell: BaseTableViewCell {
                                                        y: 0,
                                                        width: constants.actionListAccessoryDetailAndImageWidth,
                                                        height: frame.height))
-        
-        accessoryStackView?.addArrangedSubview(accessoryStatusView ?? StatusView())
+        accessoryStackView?.alignment = .center
+                
         accessoryStackView?.addArrangedSubview(accessoryDetailLabel ?? UILabel())
         accessoryStackView?.addArrangedSubview(accessoryImageView ?? UIImageView())
         
@@ -141,13 +162,12 @@ public class ActionListCell: BaseTableViewCell {
             NSLayoutConstraint.activate([detailWidthMininum, accessoryImageWidth])
         }
         
-        accessoryView = accessoryStackView
+        if let accessoryStackView = accessoryStackView {
+            stackView.addArrangedSubview(accessoryStackView)
+        }
     }
     
     private func styleAccessoryViews(theme: Theme) {
-        accessoryStatusView?.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
-        accessoryStatusView?.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-        
         accessoryDetailLabel?.numberOfLines = 0
         accessoryDetailLabel?.textAlignment = .right
         accessoryDetailLabel?.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
